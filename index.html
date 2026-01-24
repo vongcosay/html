@@ -43,6 +43,7 @@ a{text-decoration:none;color:inherit}
   align-items:center;
   justify-content:space-between;
 }
+
 .brand{
   display:flex;
   align-items:center;
@@ -58,6 +59,7 @@ a{text-decoration:none;color:inherit}
   object-fit:cover;
 }
 
+/* MENU */
 .menu{
   display:flex;
   gap:22px;
@@ -69,6 +71,33 @@ a{text-decoration:none;color:inherit}
   transition:.3s;
 }
 .menu a:hover{
+  background:var(--primary);
+  color:var(--white);
+}
+
+/* MOBILE MENU ICON */
+.menu-icon{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* MOBILE MENU DROPDOWN */
+.mobile-menu{
+  display:none;
+  flex-direction:column;
+  gap:10px;
+  padding:10px 24px 16px;
+  background:var(--white);
+  box-shadow:0 4px 16px rgba(0,0,0,.06);
+}
+
+.mobile-menu a{
+  padding:10px;
+  border-radius:8px;
+  font-weight:500;
+}
+.mobile-menu a:hover{
   background:var(--primary);
   color:var(--white);
 }
@@ -218,9 +247,12 @@ main{
   opacity:.8;
 }
 
-/* MOBILE */
+/* MOBILE RESPONSIVE */
 @media(max-width:768px){
-  .menu{gap:12px}
+  .menu{display:none;}
+  .menu-icon{display:block;}
+
+  .mobile-menu{display:flex;}
   #hero h1{font-size:32px}
 }
 </style>
@@ -234,6 +266,8 @@ main{
       <img src="https://themewagon.github.io/iPortfolio/assets/img/my-profile-img.jpg">
       Do Nguyen
     </div>
+
+    <!-- MENU DESKTOP -->
     <nav class="menu">
       <a href="#hero">Home</a>
       <a href="#about">About</a>
@@ -241,7 +275,19 @@ main{
       <a href="#portfolio">Portfolio</a>
       <a href="#contact">Contact</a>
     </nav>
+
+    <!-- ICON MOBILE -->
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
   </div>
+
+  <!-- MENU MOBILE -->
+  <nav id="mobileMenu" class="mobile-menu">
+    <a href="#hero" onclick="toggleMenu()">Home</a>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#skills" onclick="toggleMenu()">Skills</a>
+    <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </nav>
 </header>
 
 <main>
@@ -331,6 +377,14 @@ main{
     © 2026 Do Nguyen. All rights reserved.
   </div>
 </footer>
+
+<script>
+function toggleMenu() {
+  var menu = document.getElementById("mobileMenu");
+  if (menu.style.display === "flex") menu.style.display = "none";
+  else menu.style.display = "flex";
+}
+</script>
 
 </body>
 </html>
