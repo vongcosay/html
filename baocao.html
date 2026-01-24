@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Form Báo Cáo</title>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 8pt;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #8093b3;
+      padding: 15px;
+      color: white;
+      text-align: center;
+      font-size: 12pt;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: auto;
+      width: auto;
+      margin: 20px auto;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      flex: 1;
+    }
+
+    .report-title {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .report-title label {
+      font-weight: bold;
+      font-size: 8pt;
+    }
+
+    select, input[type="text"] {
+      padding: 5px 8px;
+      font-size: 8pt;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      min-width: 150px;
+    }
+
+    button {
+      padding: 5px 10px;
+      background-color: #8093b3;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      font-size: 8pt;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 0px;
+      font-size: 8pt;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      margin-top: 8px;
+      padding: 0px;
+      font-family: monospace;
+      font-size: 8pt;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+
+    #reportHeader {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 10pt;
+      text-align: center;
+    }
+
+    #report {
+      margin-top: 10px;
+  overflow-x: auto;
+  text-align: center;
+    }
+
+    table {
+      table-layout: auto;
+      width: auto;
+      border-collapse: collapse;
+      font-size: 8pt;
+    }
+
+    table th, table td {
+      border: 0px solid #ddd;
+      padding: 2px;
+      text-align: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    table th {
+      background-color: #8093b3;
+      color: white;
+      text-align: center;
+      position: relative;
+
+    }
+
+    table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .resizer {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      cursor: col-resize;
+      user-select: none;
+    }
+
+    #copyButton {
+      margin-top: 15px;
+      display: none;
+      background-color: #8093b3;
+    }
+
+    #copyButton:hover {
+      background-color: #1976D2;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 8pt;
+      padding: 10px;
+      color: #555;
+      background-color: #f2f2f2;
+      border-top: 1px solid #ddd;
+    }
+
+    footer a {
+      color: inherit;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>📋 FORM BÁO CÁO</header>
+
+  <div class="container">
+    <div class="report-title">
+      <label for="reportSelect">Tiêu đề báo cáo:</label>
+      <select id="reportSelect">
+        <option>Xuất lại kẽm</option>
+        <option>Kẽm RFID</option>
+        <option>Báo Cáo Vật Tư tháng 1</option>
+      </select>
+      <input type="text" id="customTitle" placeholder="Nhập tên mới...">
+      <button onclick="addReport()">+</button>
+      <button onclick="removeReport()">−</button>
+    </div>
+
+    <label for="dataInput">Dán dữ liệu từ Google Sheets:</label>
+    <textarea id="dataInput" placeholder="Dán dữ liệu dạng CSV hoặc tab..."></textarea>
+    <button onclick="generateReport()">Hiển thị Báo Cáo</button>
+
+    <div id="reportHeader"></div>
+    <div id="report"></div>
+    <button id="copyButton" onclick="copyReportAsImage()">📋 Copy Image to Clipboard</button>
+  </div>
+
+  <footer>
+    Do Nguyen © 2025 | <a href="https://donguyen.net" target="_blank">donguyen.net</a>
+  </footer>
+
+  <script>
+    function addReport() {
+      const customTitle = document.getElementById('customTitle').value.trim();
+      if (!customTitle) {
+        alert("Vui lòng nhập tên báo cáo mới!");
+        return;
+      }
+      const select = document.getElementById('reportSelect');
+      const option = document.createElement('option');
+      option.text = customTitle;
+      select.add(option);
+      select.value = customTitle;
+      document.getElementById('customTitle').value = "";
+    }
+
+    function removeReport() {
+      const select = document.getElementById('reportSelect');
+      if (select.options.length === 0) {
+        alert("Không còn mục để xóa!");
+        return;
+      }
+      const selectedIndex = select.selectedIndex;
+      if (selectedIndex === -1) {
+        alert("Vui lòng chọn một báo cáo để xóa!");
+        return;
+      }
+      if (confirm(`Xóa "${select.options[selectedIndex].text}"?`)) {
+        select.remove(selectedIndex);
+      }
+    }
+
+    function generateReport() {
+  const reportTitle = document.getElementById('reportSelect').value;
+  const rawData = document.getElementById('dataInput').value;
+  const reportHeader = document.getElementById('reportHeader');
+  reportHeader.textContent = rawData.trim() ? `📑 ${reportTitle}` : "";
+
+  if (!rawData.trim()) {
+    alert("Vui lòng nhập dữ liệu!");
+    return;
+  }
+
+  const lines = rawData.split(/\r?\n/);  // KHÔNG dùng .filter() để giữ hàng trống
+  if (lines.length === 0) {
+    alert("❌ Dữ liệu trống!");
+    return;
+  }
+
+  const table = document.createElement('table');
+  const headerCells = lines[0].split('\t');  // Luôn dùng tab
+  const headerLength = headerCells.length;
+
+  lines.forEach((line, idx) => {
+    const row = document.createElement('tr');
+    let cells = line.split('\t');
+
+    // Đảm bảo đúng số cột
+    while (cells.length < headerLength) cells.push("");
+    while (cells.length > headerLength) cells.pop();
+
+    cells.forEach(cell => {
+      const cellElem = document.createElement(idx === 0 ? 'th' : 'td');
+      cellElem.textContent = cell;
+      row.appendChild(cellElem);
+    });
+
+    table.appendChild(row);
+  });
+
+  const reportDiv = document.getElementById('report');
+  reportDiv.innerHTML = "";
+  reportDiv.appendChild(table);
+
+  makeColumnsResizable(table);
+  document.getElementById('copyButton').style.display = 'inline-block';
+}
+
+    function makeColumnsResizable(table) {
+      const cols = table.querySelectorAll('th');
+      cols.forEach(th => {
+        const resizer = document.createElement('div');
+        resizer.classList.add('resizer');
+        th.appendChild(resizer);
+
+        let startX, startWidth;
+
+        resizer.addEventListener('mousedown', e => {
+          startX = e.pageX;
+          startWidth = th.offsetWidth;
+
+          document.addEventListener('mousemove', mousemove);
+          document.addEventListener('mouseup', mouseup);
+          e.preventDefault();
+        });
+
+        function mousemove(e) {
+          const newWidth = startWidth + (e.pageX - startX);
+          th.style.width = newWidth + 'px';
+        }
+
+        function mouseup() {
+          document.removeEventListener('mousemove', mousemove);
+          document.removeEventListener('mouseup', mouseup);
+        }
+      });
+    }
+
+    async function copyReportAsImage() {
+      const reportElem = document.getElementById('report');
+
+      if (!reportElem.innerHTML.trim()) {
+        alert('❌ Không có bảng dữ liệu để copy!');
+        return;
+      }
+
+      try {
+        const canvas = await html2canvas(reportElem, {
+          backgroundColor: '#ffffff',
+          scale: 1,
+          useCORS: true
+        });
+
+        const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+
+        await navigator.clipboard.write([
+          new ClipboardItem({ 'image/png': blob })
+        ]);
+        alert('✅ Đã copy hình ảnh báo cáo vào clipboard!');
+      } catch (err) {
+        console.error(err);
+        alert('❌ Không thể copy hình ảnh. Trình duyệt không hỗ trợ hoặc có lỗi.');
+      }
+    }
+  </script>
+</body>
+</html>
