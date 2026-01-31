@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Do Nguyen | Automation • Admin IT</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary:#00b894;
+  --accent:#0984e3;
+  --bg:#f5f7fa;
+  --card:#ffffff;
+  --text-main:#2d3436;
+  --text-sub:#636e72;
+  --border:#e2e8f0;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  padding:16px;
+  font-family:Inter,system-ui,sans-serif;
+  background:linear-gradient(135deg,#eef2f7,#f8fafc);
+  color:var(--text-main);
+  display:flex;
+  justify-content:center;
+}
+
+.container{
+  width:100%;
+  max-width:1100px;
+  background:var(--card);
+  border-radius:22px;
+  padding:28px;
+  box-shadow:0 15px 40px rgba(0,0,0,.06);
+}
+
+/* ===== HEADER ===== */
+.header{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:28px;
+  margin-bottom:30px;
+}
+
+.header-info h1{
+  margin:0;
+  font-size:2.2rem;
+  color:var(--primary);
+}
+
+.header-info p{
+  margin:12px 0 18px;
+  color:var(--text-sub);
+  line-height:1.6;
+}
+
+.header-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.tag{
+  padding:6px 12px;
+  background:#eefaf6;
+  color:var(--primary);
+  border-radius:999px;
+  font-size:.8rem;
+  font-weight:600;
+}
+
+/* ===== IMAGE ===== */
+.preview{
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid var(--border);
+}
+
+.preview img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* ===== SECTION ===== */
+.section{
+  border:1.8px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:22px;
+  transition:.25s;
+}
+
+.section:hover{
+  border-color:var(--primary);
+}
+
+.section h2{
+  margin:0 0 14px;
+  font-size:1.25rem;
+  color:var(--accent);
+}
+
+/* ===== GRID ===== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:14px;
+}
+
+.card-mini{
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  font-size:.9rem;
+}
+
+.card-mini strong{color:var(--primary)}
+
+/* ===== ACTION ===== */
+.actions{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:14px;
+}
+
+.action{
+  border:2px dashed var(--primary);
+  border-radius:16px;
+  padding:18px;
+  background:#f5fbff;
+}
+
+.action h3{
+  margin:0 0 6px;
+  font-size:1rem;
+  color:var(--primary);
+}
+
+/* ===== CODE ===== */
+.code-box{
+  background:#0f172a;
+  color:#e5e7eb;
+  border-radius:16px;
+  padding:20px;
+  font-family:Consolas,monospace;
+  font-size:13px;
+  line-height:1.6;
+  overflow-x:auto;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  margin-top:32px;
+  padding-top:18px;
+  border-top:1px solid var(--border);
+  font-size:.8rem;
+  color:var(--text-sub);
+}
+
+footer span{
+  color:var(--primary);
+  font-weight:700;
+}
+
+.ai-note{
+  display:block;
+  margin-top:6px;
+  color:#94a3b8;
+}
+
+/* ===== MOBILE OPTIMIZE ===== */
+@media(max-width:768px){
+  body{padding:10px}
+  .container{padding:20px}
+  .header{
+    grid-template-columns:1fr;
+  }
+  .header-info h1{
+    font-size:1.8rem;
+  }
+  .preview{
+    order:-1;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-info">
+      <h1>Do Nguyen</h1>
+      <p>
+        Định hướng <strong>Quản trị viên Công nghệ Thông tin</strong>,
+        đam mê <strong>Automation</strong>, <strong>VBA</strong> và
+        xây dựng công cụ giúp hệ thống vận hành ổn định, hiệu quả.
+      </p>
+
+      <div class="header-tags">
+        <div class="tag">Admin IT</div>
+        <div class="tag">Automation</div>
+        <div class="tag">VBA</div>
+        <div class="tag">Software</div>
+        <div class="tag">Google Apps Script</div>
+        <div class="tag">Python</div>
+        <div class="tag">Action</div>
+        <div class="tag">HTML / CSS / JS</div>
+        <div class="tag">System Management</div>
+      </div>
+    </div>
+
+    <div class="preview">
+      <img src="https://raw.githubusercontent.com/vongcosay/html/refs/heads/main/Screenshot%202026-01-25%20020858.jpg">
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section">
+    <h2>👋 Giới thiệu</h2>
+    <p>
+      Mê CNTT, làm lập trình viên, tiếng Anh chẳng biết, cũng chẳng có tiền đi học, nghèo quá mờ ^_^, chỉ có đam mê và thói quen mày mò tới cùng. ChatGPT là công cụ hỗ trợ giúp mình học nhanh hơn và giải quyết vấn đề hiệu quả hơn.
+    </p>
+  </div>
+
+  <!-- INTEREST -->
+  <div class="section">
+    <h2>🛠️ Sở thích Admin IT</h2>
+    <ul>
+      <li>Quản trị người dùng & hệ thống</li>
+      <li>Tự động hoá quy trình IT</li>
+      <li>Tạo tool hỗ trợ nội bộ</li>
+      <li>Chuẩn hoá & tối ưu vận hành</li>
+    </ul>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <h2>🧠 Kỹ năng mong muốn</h2>
+    <div class="grid">
+      <div class="card-mini"><strong>Admin IT</strong><br>Hệ thống & người dùng</div>
+      <div class="card-mini"><strong>Automation</strong><br>Workflow & script</div>
+      <div class="card-mini"><strong>VBA</strong><br>Excel Macro</div>
+      <div class="card-mini"><strong>Web Tool</strong><br>HTML, CSS, JS</div>
+    </div>
+  </div>
+
+  <!-- ACTION -->
+  <div class="section">
+    <h2>⚡ Action triển khai</h2>
+    <div class="actions">
+      <div class="action"><h3>📊 VBA</h3><p>Macro, form</p></div>
+      <div class="action"><h3>🔁 Workflow</h3><p>Tự động hoá quy trình IT</p></div>
+      <div class="action"><h3>🌐 Web Tool</h3><p>Công cụ nội bộ</p></div>
+    </div>
+  </div>
+
+  <!-- MINDSET -->
+  <div class="section">
+    <h2>💻 Tư duy</h2>
+    <div class="code-box">
+const adminMindset = {
+  stabilityFirst: true,
+  automationEverywhere: true,
+  reduceManualWork: true,
+  simpleForUser: true
+};
+    </div>
+  </div>
+
+  <footer>
+    © 2026 • Built by <span>Do Nguyen</span>
+    <span class="ai-note">Nội dung Website được tạo với sự hỗ trợ của ChatGPT</span>
+  </footer>
+
+</div>
+</body>
+</html>
