@@ -2,398 +2,311 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
+<title>Do Nguyen | Automation • Admin IT • Programming</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio | Do Nguyen</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --primary:#4f46e5;
-  --primary-light:#8b5cf6;
-  --bg:#f9fafb;
-  --dark:#111827;
-  --text:#374151;
-  --white:#ffffff;
+:root {
+    --primary: #00b894;
+    --accent: #0984e3;
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --text-main: #2d3436;
+    --text-sub: #636e72;
+    --border: #e2e8f0;
 }
 
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box}
+* { box-sizing: border-box; }
+
 body {
-  /* Thêm hệ thống font dự phòng */
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  scroll-behavior: smooth;
-  /* Giúp chữ hiển thị sắc nét hơn trên macOS/Windows */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-a{text-decoration:none;color:inherit}
-
-/* ===== NAVBAR ===== */
-.navbar{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:var(--white);
-  box-shadow:0 4px 16px rgba(0,0,0,.06);
-}
-.nav-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:14px 24px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+    margin: 0;
+    padding: 30px;
+    font-family: "Inter", system-ui, sans-serif;
+    background: linear-gradient(135deg, #eef2f7, #f8fafc);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
 }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-weight:700;
-  font-size:20px;
-  color:var(--dark);
-}
-.brand img{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  object-fit:cover;
+.container {
+    max-width: 1100px;
+    width: 100%;
+    background: var(--card);
+    border-radius: 28px;
+    padding: 45px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.06);
 }
 
-/* MENU */
-.menu{
-  display:flex;
-  gap:22px;
-}
-.menu a{
-  font-weight:500;
-  padding:6px 10px;
-  border-radius:6px;
-  transition:.3s;
-}
-.menu a:hover{
-  background:var(--primary);
-  color:var(--white);
+/* ===== HEADER ===== */
+.header {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 35px;
+    margin-bottom: 40px;
 }
 
-/* MOBILE MENU ICON */
-.menu-icon{
-  display:none;
-  font-size:26px;
-  cursor:pointer;
+.header-info h1 {
+    margin: 0;
+    font-size: 2.4rem;
+    color: var(--primary);
 }
 
-/* MOBILE MENU DROPDOWN */
-.mobile-menu{
-  display:none; /* ẨN mặc định */
-  flex-direction:column;
-  gap:10px;
-  padding:10px 24px 16px;
-  background:var(--white);
-  box-shadow:0 4px 16px rgba(0,0,0,.06);
+.header-info p {
+    margin: 12px 0 22px;
+    color: var(--text-sub);
+    font-size: 1.05rem;
 }
 
-.mobile-menu a{
-  padding:10px;
-  border-radius:8px;
-  font-weight:500;
-}
-.mobile-menu a:hover{
-  background:var(--primary);
-  color:var(--white);
+.header-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-/* ===== MAIN ===== */
-main{
-  max-width:1200px;
-  margin:auto;
-  padding:40px 24px;
+.tag {
+    padding: 8px 14px;
+    background: #eefaf6;
+    color: var(--primary);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
-/* HERO */
-#hero{
-  text-align:center;
-  padding:5px 0;
-}
-#hero img{
-  width:140px;
-  height:140px;
-  border-radius:50%;
-  object-fit:cover;
-  margin-bottom:18px;
-  border:4px solid var(--primary);
-}
-#hero h1{
-  font-size:42px;
-  color:var(--dark);
-}
-#hero p{
-  margin-top:8px;
-  font-size:18px;
-  color:var(--primary);
+/* ===== IMAGE ===== */
+.preview {
+    border-radius: 22px;
+    overflow: hidden;
+    border: 2px solid var(--border);
 }
 
-/* SECTION */
-.section{
-  margin-top:80px;
-}
-.section-title{
-  font-size:28px;
-  font-weight:700;
-  margin-bottom:12px;
-  color:var(--dark);
-}
-.section-desc{
-  opacity:.85;
-  margin-bottom:25px;
+.preview img {
+    width: 100%;
+    display: block;
 }
 
-/* ABOUT */
-.about-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-  align-items:center;
-}
-.info{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  font-size:14px;
+/* ===== SECTION ===== */
+.section {
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 26px;
+    transition: 0.3s;
 }
 
-/* SKILLS */
-.skill{
-  margin-bottom:16px;
-}
-.skill label{
-  font-weight:500;
-  font-size:14px;
-}
-.bar{
-  width:100%;
-  height:8px;
-  background:#e5e7eb;
-  border-radius:20px;
-  margin-top:6px;
-}
-.bar span{
-  display:block;
-  height:100%;
-  background:var(--primary);
-  border-radius:20px;
+.section:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
 }
 
-/* PORTFOLIO */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:22px;
+.section h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 1.35rem;
+    color: var(--accent);
 }
-.card{
-  background:var(--white);
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:0 10px 26px rgba(0,0,0,.07);
-  transition:.3s;
+
+/* ===== GRID ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
 }
-.card:hover{transform:translateY(-6px)}
-.card img{
-  width:100%;
-  height:160px;
-  object-fit:cover;
+
+.card-mini {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    font-size: 0.95rem;
 }
-.card div{padding:16px}
+
+.card-mini strong {
+    color: var(--primary);
+}
+
+/* ===== CODE ===== */
+.code-box {
+    background: #0f172a;
+    color: #e5e7eb;
+    border-radius: 18px;
+    padding: 24px;
+    font-family: Consolas, monospace;
+    font-size: 13.5px;
+    line-height: 1.65;
+    overflow-x: auto;
+}
+
+/* ===== ACTION ===== */
+.actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.action {
+    background: linear-gradient(135deg, #eefaf6, #f5fbff);
+    border: 2px dashed var(--primary);
+    border-radius: 18px;
+    padding: 22px;
+    transition: 0.25s;
+}
+
+.action:hover {
+    background: #ffffff;
+    transform: translateY(-4px);
+}
+
+.action h3 {
+    margin: 0 0 8px;
+    color: var(--primary);
+    font-size: 1.05rem;
+}
 
 /* ===== FOOTER ===== */
-.footer{
-  margin-top:100px;
-  padding:50px 20px;
-  background:linear-gradient(135deg,var(--primary),var(--primary-light));
-  color:var(--white);
-  text-align:center;
+footer {
+    text-align: center;
+    margin-top: 45px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    color: var(--text-sub);
+    font-size: 0.85rem;
 }
 
-.footer h3{
-  font-size:26px;
-  margin-bottom:14px;
+footer span {
+    color: var(--primary);
+    font-weight: 700;
 }
 
-.footer p{
-  font-size:15px;
-  margin:6px 0;
-  opacity:.95;
+footer .ai-note {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.8rem;
+    color: #94a3b8;
 }
 
-.footer-social{
-  margin:18px 0;
-  display:flex;
-  justify-content:center;
-  gap:18px;
-}
-
-.footer-social a{
-  font-size:20px;
-  opacity:.85;
-  transition:.3s;
-}
-.footer-social a:hover{
-  opacity:1;
-  transform:scale(1.15);
-}
-
-.copyright{
-  margin-top:20px;
-  font-size:13px;
-  opacity:.8;
-}
-
-/* MOBILE RESPONSIVE */
-@media(max-width:768px){
-  .menu{display:none;}
-  .menu-icon{display:block;}
-
-  .mobile-menu{display:none;} /* ẨN mặc định */
-  #hero h1{font-size:32px}
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .header {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
 </head>
+
 <body>
+<div class="container">
 
-<!-- NAVBAR -->
-<header class="navbar">
-  <div class="nav-inner">
-    <div class="brand">
-      <img src="https://raw.githubusercontent.com/vongcosay/html/refs/heads/main/Screenshot%202026-01-25%20020858.jpg">
-      Do Nguyen
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-info">
+            <h1>Do Nguyen</h1>
+            <p>
+                Định hướng <strong>Quản trị viên Công nghệ Thông tin</strong>,
+                đam mê <strong>Automation</strong>, <strong>VBA</strong> và
+                xây dựng các công cụ hỗ trợ vận hành hệ thống hiệu quả.
+            </p>
+
+            <div class="header-tags">
+                <div class="tag">Admin IT</div>
+                <div class="tag">System Management</div>
+                <div class="tag">Automation</div>
+                <div class="tag">VBA</div>
+                <div class="tag">HTML / CSS / JS</div>
+                <div class="tag">Google Apps Script</div>
+            </div>
+        </div>
+
+        <div class="preview">
+            <img src="https://raw.githubusercontent.com/vongcosay/html/refs/heads/main/Screenshot%202026-01-25%20020858.jpg"
+                 alt="Automation Preview">
+        </div>
     </div>
 
-    <!-- MENU DESKTOP -->
-    <nav class="menu">
-      <a href="#hero">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <!-- ABOUT -->
+    <div class="section">
+        <h2>👋 Giới thiệu</h2>
+        <p>
+            Tôi là người làm việc theo định hướng <strong>Admin / Quản trị hệ thống CNTT</strong>,
+            tập trung vào việc đảm bảo hệ thống vận hành ổn định, dễ quản lý
+            và giảm tối đa thao tác thủ công cho người dùng.
+        </p>
+        <p>
+            Tôi thường kết hợp <strong>Web</strong>, <strong>VBA</strong> và
+            các <strong>Action tự động</strong> để giải quyết các bài toán
+            quản trị, báo cáo, phân quyền và xử lý dữ liệu.
+        </p>
+    </div>
 
-    <!-- ICON MOBILE -->
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-  </div>
+    <!-- INTEREST -->
+    <div class="section">
+        <h2>🛠️ Sở thích & vai trò Admin IT</h2>
+        <ul>
+            <li>Quản trị hệ thống máy tính & tài khoản người dùng</li>
+            <li>Tự động hoá công việc của Admin bằng script & macro</li>
+            <li>Chuẩn hoá quy trình IT nội bộ</li>
+            <li>Giám sát, tối ưu và giảm lỗi vận hành</li>
+            <li>Xây dựng công cụ hỗ trợ người dùng cuối</li>
+        </ul>
+    </div>
 
-  <!-- MENU MOBILE -->
-  <nav id="mobileMenu" class="mobile-menu">
-    <a href="#hero" onclick="toggleMenu()">Home</a>
-    <a href="#about" onclick="toggleMenu()">About</a>
-    <a href="#skills" onclick="toggleMenu()">Skills</a>
-    <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
-    <a href="#contact" onclick="toggleMenu()">Contact</a>
-  </nav>
-</header>
+    <!-- SKILLS -->
+    <div class="section">
+        <h2>🧠 Kỹ năng & công nghệ</h2>
+        <div class="grid">
+            <div class="card-mini"><strong>Admin IT</strong><br>Quản trị người dùng, hệ thống</div>
+            <div class="card-mini"><strong>Automation</strong><br>Workflow, action, script</div>
+            <div class="card-mini"><strong>VBA</strong><br>Excel Macro, Form, Report</div>
+            <div class="card-mini"><strong>Web Tool</strong><br>HTML, CSS, JavaScript</div>
+            <div class="card-mini"><strong>Data</strong><br>Google Sheets, xử lý dữ liệu</div>
+        </div>
+    </div>
 
-<main>
-<!-- HERO -->
-<section id="hero">
-  <img src="https://raw.githubusercontent.com/vongcosay/html/refs/heads/main/Screenshot%202026-01-25%20020858.jpg">
-  <h1>Hi, I'm Do Nguyen 👋</h1>
-  <p>Developer • Automation • Dashboard</p>
-</section>
+    <!-- ACTION -->
+    <div class="section">
+        <h2>⚡ Action tôi thường triển khai</h2>
+        <div class="actions">
+            <div class="action">
+                <h3>📊 Excel VBA</h3>
+                <p>Tạo macro, nút bấm, form nhập liệu phục vụ Admin & báo cáo.</p>
+            </div>
+            <div class="action">
+                <h3>🔁 IT Workflow</h3>
+                <p>Tự động hoá các bước xử lý lặp lại trong công việc IT.</p>
+            </div>
+            <div class="action">
+                <h3>🌐 Web Admin Tool</h3>
+                <p>Xây dựng công cụ web nội bộ cho quản trị và người dùng.</p>
+            </div>
+            <div class="action">
+                <h3>📎 Kết nối hệ thống</h3>
+                <p>Liên kết Excel, Google Sheets và dữ liệu vận hành.</p>
+            </div>
+        </div>
+    </div>
 
-<!-- ABOUT -->
-<section id="about" class="section">
-  <div class="section-title">About Me</div>
-  <div class="section-desc">
-<ul dir="auto">
-<li>Kh&aacute;m ph&aacute; s&acirc;u hơn về<span>&nbsp;</span><strong>AI &amp; Automation</strong></li>
-<li>Mở rộng kiến thức<span>&nbsp;</span><strong>Web &ndash; Hosting &ndash; System</strong></li>
-<li>Ph&aacute;t triển<span>&nbsp;</span><strong>tư duy hệ thống &amp; tối ưu quy tr&igrave;nh</strong></li>
-</ul>
+    <!-- MINDSET -->
+    <div class="section">
+        <h2>💻 Tư duy Admin & Automation</h2>
+        <div class="code-box">
+const adminMindset = {
+  stabilityFirst: true,
+  automationEverywhere: true,
+  reduceManualWork: true,
+  clearProcess: true,
+  easyForEndUser: true
+};
+
+export default adminMindset;
+        </div>
+    </div>
+
+    <footer>
+        © 2026 • Built with focus & ☕ by <span>Do Nguyen</span>
+        <span class="ai-note">
+            Website được tạo với sự hỗ trợ của ChatGPT
+        </span>
+    </footer>
+
 </div>
-
-  <div class="about-grid">
-    <img src="https://raw.githubusercontent.com/vongcosay/html/refs/heads/main/Screenshot%202026-01-25%20020858.jpg" style="width:100%;border-radius:14px">
-    <div>
-      <div class="info">
-        <div>🎂 1995</div>
-        <div>📍 Singapore</div>
-        <div>📞 0983 181 209</div>
-        <div>✉️ do.nguyen@email.com</div>
-      </div>
-      <p style="margin-top:12px">
-        Kinh nghiệm với HTML/CSS/JS, Google Apps Script, PowerShell, báo cáo dữ liệu & dashboard.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="section">
-  <div class="section-title">Skills</div>
-
-  <div class="skill">
-    <label>HTML / CSS</label>
-    <div class="bar"><span style="width:95%"></span></div>
-  </div>
-  <div class="skill">
-    <label>JavaScript</label>
-    <div class="bar"><span style="width:85%"></span></div>
-  </div>
-  <div class="skill">
-    <label>Google Apps Script</label>
-    <div class="bar"><span style="width:88%"></span></div>
-  </div>
-</section>
-
-<!-- PORTFOLIO -->
-<section id="portfolio" class="section">
-  <div class="section-title">Portfolio</div>
-
-  <div class="cards">
-    <div class="card">
-      <img src="https://raw.githubusercontent.com/vongcosay/html/refs/heads/main/baobi.jpg">
-      <div><strong>Automation Tool</strong><p>Apps Script</p></div>
-    </div>
-    <div class="card">
-      <img src="https://raw.githubusercontent.com/vongcosay/html/refs/heads/main/hinh2.jpg">
-      <div><strong>Dashboard KPI</strong><p>Google Sheet</p></div>
-    </div>
-    <div class="card">
-      <img src="https://raw.githubusercontent.com/vongcosay/html/refs/heads/main/hinh2.jpg">
-      <div><strong>Internal Web App</strong><p>HTML + JS</p></div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- FOOTER CONTACT -->
-<footer id="contact" class="footer">
-  <h3>Contact Me</h3>
-  <p>📍 Singapore</p>
-  <p>📞 0983 181 209</p>
-  <p>✉️ do.nguyen@email.com</p>
-
-  <div class="footer-social">
-    <a href="#">🌐</a>
-    <a href="#">💼</a>
-    <a href="#">📸</a>
-  </div>
-
-  <div class="copyright">
-    © 2026 Do Nguyen. All rights reserved.
-  </div>
-</footer>
-
-<script>
-function toggleMenu() {
-  var menu = document.getElementById("mobileMenu");
-  if (menu.style.display === "flex") menu.style.display = "none";
-  else menu.style.display = "flex";
-}
-</script>
-
 </body>
 </html>
