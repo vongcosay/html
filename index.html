@@ -2,193 +2,191 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Do Nguyen | Automation • Admin IT • Programming</title>
+<title>Do Nguyen | Automation • Admin IT</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root {
-    --primary: #00b894;
-    --accent: #0984e3;
-    --bg: #f5f7fa;
-    --card: #ffffff;
-    --text-main: #2d3436;
-    --text-sub: #636e72;
-    --border: #e2e8f0;
+  --primary:#00b894;
+  --accent:#0984e3;
+  --bg:#f5f7fa;
+  --card:#ffffff;
+  --text-main:#2d3436;
+  --text-sub:#636e72;
+  --border:#e2e8f0;
 }
 
-* { box-sizing: border-box; }
+*{box-sizing:border-box}
 
-body {
-    margin: 0;
-    padding: 30px;
-    font-family: "Inter", system-ui, sans-serif;
-    background: linear-gradient(135deg, #eef2f7, #f8fafc);
-    color: var(--text-main);
-    display: flex;
-    justify-content: center;
+body{
+  margin:0;
+  padding:16px;
+  font-family:Inter,system-ui,sans-serif;
+  background:linear-gradient(135deg,#eef2f7,#f8fafc);
+  color:var(--text-main);
+  display:flex;
+  justify-content:center;
 }
 
-.container {
-    max-width: 1100px;
-    width: 100%;
-    background: var(--card);
-    border-radius: 28px;
-    padding: 45px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+.container{
+  width:100%;
+  max-width:1100px;
+  background:var(--card);
+  border-radius:22px;
+  padding:28px;
+  box-shadow:0 15px 40px rgba(0,0,0,.06);
 }
 
 /* ===== HEADER ===== */
-.header {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 35px;
-    margin-bottom: 40px;
+.header{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:28px;
+  margin-bottom:30px;
 }
 
-.header-info h1 {
-    margin: 0;
-    font-size: 2.4rem;
-    color: var(--primary);
+.header-info h1{
+  margin:0;
+  font-size:2.2rem;
+  color:var(--primary);
 }
 
-.header-info p {
-    margin: 12px 0 22px;
-    color: var(--text-sub);
-    font-size: 1.05rem;
+.header-info p{
+  margin:12px 0 18px;
+  color:var(--text-sub);
+  line-height:1.6;
 }
 
-.header-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+.header-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
 }
 
-.tag {
-    padding: 8px 14px;
-    background: #eefaf6;
-    color: var(--primary);
-    border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 600;
+.tag{
+  padding:6px 12px;
+  background:#eefaf6;
+  color:var(--primary);
+  border-radius:999px;
+  font-size:.8rem;
+  font-weight:600;
 }
 
 /* ===== IMAGE ===== */
-.preview {
-    border-radius: 22px;
-    overflow: hidden;
-    border: 2px solid var(--border);
+.preview{
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid var(--border);
 }
 
-.preview img {
-    width: 100%;
-    display: block;
+.preview img{
+  width:100%;
+  height:auto;
+  display:block;
 }
 
 /* ===== SECTION ===== */
-.section {
-    border: 2px solid var(--border);
-    border-radius: 20px;
-    padding: 30px;
-    margin-bottom: 26px;
-    transition: 0.3s;
+.section{
+  border:1.8px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:22px;
+  transition:.25s;
 }
 
-.section:hover {
-    border-color: var(--primary);
-    transform: translateY(-3px);
+.section:hover{
+  border-color:var(--primary);
 }
 
-.section h2 {
-    margin-top: 0;
-    margin-bottom: 16px;
-    font-size: 1.35rem;
-    color: var(--accent);
+.section h2{
+  margin:0 0 14px;
+  font-size:1.25rem;
+  color:var(--accent);
 }
 
 /* ===== GRID ===== */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:14px;
 }
 
-.card-mini {
-    background: #f8fafc;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 18px;
-    font-size: 0.95rem;
+.card-mini{
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  font-size:.9rem;
 }
 
-.card-mini strong {
-    color: var(--primary);
+.card-mini strong{color:var(--primary)}
+
+/* ===== ACTION ===== */
+.actions{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:14px;
+}
+
+.action{
+  border:2px dashed var(--primary);
+  border-radius:16px;
+  padding:18px;
+  background:#f5fbff;
+}
+
+.action h3{
+  margin:0 0 6px;
+  font-size:1rem;
+  color:var(--primary);
 }
 
 /* ===== CODE ===== */
-.code-box {
-    background: #0f172a;
-    color: #e5e7eb;
-    border-radius: 18px;
-    padding: 24px;
-    font-family: Consolas, monospace;
-    font-size: 13.5px;
-    line-height: 1.65;
-    overflow-x: auto;
-}
-
-/* ===== ACTION ===== */
-.actions {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-}
-
-.action {
-    background: linear-gradient(135deg, #eefaf6, #f5fbff);
-    border: 2px dashed var(--primary);
-    border-radius: 18px;
-    padding: 22px;
-    transition: 0.25s;
-}
-
-.action:hover {
-    background: #ffffff;
-    transform: translateY(-4px);
-}
-
-.action h3 {
-    margin: 0 0 8px;
-    color: var(--primary);
-    font-size: 1.05rem;
+.code-box{
+  background:#0f172a;
+  color:#e5e7eb;
+  border-radius:16px;
+  padding:20px;
+  font-family:Consolas,monospace;
+  font-size:13px;
+  line-height:1.6;
+  overflow-x:auto;
 }
 
 /* ===== FOOTER ===== */
-footer {
-    text-align: center;
-    margin-top: 45px;
-    padding-top: 22px;
-    border-top: 1px solid var(--border);
-    color: var(--text-sub);
-    font-size: 0.85rem;
+footer{
+  text-align:center;
+  margin-top:32px;
+  padding-top:18px;
+  border-top:1px solid var(--border);
+  font-size:.8rem;
+  color:var(--text-sub);
 }
 
-footer span {
-    color: var(--primary);
-    font-weight: 700;
+footer span{
+  color:var(--primary);
+  font-weight:700;
 }
 
-footer .ai-note {
-    display: block;
-    margin-top: 6px;
-    font-size: 0.8rem;
-    color: #94a3b8;
+.ai-note{
+  display:block;
+  margin-top:6px;
+  color:#94a3b8;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-    .header {
-        grid-template-columns: 1fr;
-    }
+/* ===== MOBILE OPTIMIZE ===== */
+@media(max-width:768px){
+  body{padding:10px}
+  .container{padding:20px}
+  .header{
+    grid-template-columns:1fr;
+  }
+  .header-info h1{
+    font-size:1.8rem;
+  }
+  .preview{
+    order:-1;
+  }
 }
 </style>
 </head>
@@ -196,116 +194,88 @@ footer .ai-note {
 <body>
 <div class="container">
 
-    <!-- HEADER -->
-    <div class="header">
-        <div class="header-info">
-            <h1>Do Nguyen</h1>
-            <p>
-                Định hướng <strong>Quản trị viên Công nghệ Thông tin</strong>,
-                đam mê <strong>Automation</strong>, <strong>VBA</strong> và
-                xây dựng các công cụ hỗ trợ vận hành hệ thống hiệu quả.
-            </p>
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-info">
+      <h1>Do Nguyen</h1>
+      <p>
+        Định hướng <strong>Quản trị viên Công nghệ Thông tin</strong>,
+        đam mê <strong>Automation</strong>, <strong>VBA</strong> và
+        xây dựng công cụ giúp hệ thống vận hành ổn định, hiệu quả.
+      </p>
 
-            <div class="header-tags">
-                <div class="tag">Admin IT</div>
-                <div class="tag">System Management</div>
-                <div class="tag">Automation</div>
-                <div class="tag">VBA</div>
-                <div class="tag">HTML / CSS / JS</div>
-                <div class="tag">Google Apps Script</div>
-            </div>
-        </div>
-
-        <div class="preview">
-            <img src="https://raw.githubusercontent.com/vongcosay/html/refs/heads/main/Screenshot%202026-01-25%20020858.jpg"
-                 alt="Automation Preview">
-        </div>
+      <div class="header-tags">
+        <div class="tag">Admin IT</div>
+        <div class="tag">Automation</div>
+        <div class="tag">VBA</div>
+        <div class="tag">HTML / CSS / JS</div>
+        <div class="tag">System Management</div>
+      </div>
     </div>
 
-    <!-- ABOUT -->
-    <div class="section">
-        <h2>👋 Giới thiệu</h2>
-        <p>
-            Tôi là người làm việc theo định hướng <strong>Admin / Quản trị hệ thống CNTT</strong>,
-            tập trung vào việc đảm bảo hệ thống vận hành ổn định, dễ quản lý
-            và giảm tối đa thao tác thủ công cho người dùng.
-        </p>
-        <p>
-            Tôi thường kết hợp <strong>Web</strong>, <strong>VBA</strong> và
-            các <strong>Action tự động</strong> để giải quyết các bài toán
-            quản trị, báo cáo, phân quyền và xử lý dữ liệu.
-        </p>
+    <div class="preview">
+      <img src="https://raw.githubusercontent.com/vongcosay/html/refs/heads/main/Screenshot%202026-01-25%20020858.jpg">
     </div>
+  </div>
 
-    <!-- INTEREST -->
-    <div class="section">
-        <h2>🛠️ Sở thích & vai trò Admin IT</h2>
-        <ul>
-            <li>Quản trị hệ thống máy tính & tài khoản người dùng</li>
-            <li>Tự động hoá công việc của Admin bằng script & macro</li>
-            <li>Chuẩn hoá quy trình IT nội bộ</li>
-            <li>Giám sát, tối ưu và giảm lỗi vận hành</li>
-            <li>Xây dựng công cụ hỗ trợ người dùng cuối</li>
-        </ul>
+  <!-- ABOUT -->
+  <div class="section">
+    <h2>👋 Giới thiệu</h2>
+    <p>
+      Tôi tập trung vào việc tự động hoá công việc IT, quản trị hệ thống,
+      giảm thao tác thủ công và xây dựng giải pháp dễ dùng cho người dùng cuối.
+    </p>
+  </div>
+
+  <!-- INTEREST -->
+  <div class="section">
+    <h2>🛠️ Sở thích Admin IT</h2>
+    <ul>
+      <li>Quản trị người dùng & hệ thống</li>
+      <li>Tự động hoá quy trình IT</li>
+      <li>Tạo tool hỗ trợ nội bộ</li>
+      <li>Chuẩn hoá & tối ưu vận hành</li>
+    </ul>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <h2>🧠 Kỹ năng</h2>
+    <div class="grid">
+      <div class="card-mini"><strong>Admin IT</strong><br>Hệ thống & người dùng</div>
+      <div class="card-mini"><strong>Automation</strong><br>Workflow & script</div>
+      <div class="card-mini"><strong>VBA</strong><br>Excel Macro</div>
+      <div class="card-mini"><strong>Web Tool</strong><br>HTML, CSS, JS</div>
     </div>
+  </div>
 
-    <!-- SKILLS -->
-    <div class="section">
-        <h2>🧠 Kỹ năng & công nghệ</h2>
-        <div class="grid">
-            <div class="card-mini"><strong>Admin IT</strong><br>Quản trị người dùng, hệ thống</div>
-            <div class="card-mini"><strong>Automation</strong><br>Workflow, action, script</div>
-            <div class="card-mini"><strong>VBA</strong><br>Excel Macro, Form, Report</div>
-            <div class="card-mini"><strong>Web Tool</strong><br>HTML, CSS, JavaScript</div>
-            <div class="card-mini"><strong>Data</strong><br>Google Sheets, xử lý dữ liệu</div>
-        </div>
+  <!-- ACTION -->
+  <div class="section">
+    <h2>⚡ Action triển khai</h2>
+    <div class="actions">
+      <div class="action"><h3>📊 VBA</h3><p>Macro, form, báo cáo</p></div>
+      <div class="action"><h3>🔁 Workflow</h3><p>Tự động hoá quy trình IT</p></div>
+      <div class="action"><h3>🌐 Web Tool</h3><p>Công cụ nội bộ</p></div>
     </div>
+  </div>
 
-    <!-- ACTION -->
-    <div class="section">
-        <h2>⚡ Action tôi thường triển khai</h2>
-        <div class="actions">
-            <div class="action">
-                <h3>📊 Excel VBA</h3>
-                <p>Tạo macro, nút bấm, form nhập liệu phục vụ Admin & báo cáo.</p>
-            </div>
-            <div class="action">
-                <h3>🔁 IT Workflow</h3>
-                <p>Tự động hoá các bước xử lý lặp lại trong công việc IT.</p>
-            </div>
-            <div class="action">
-                <h3>🌐 Web Admin Tool</h3>
-                <p>Xây dựng công cụ web nội bộ cho quản trị và người dùng.</p>
-            </div>
-            <div class="action">
-                <h3>📎 Kết nối hệ thống</h3>
-                <p>Liên kết Excel, Google Sheets và dữ liệu vận hành.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- MINDSET -->
-    <div class="section">
-        <h2>💻 Tư duy Admin & Automation</h2>
-        <div class="code-box">
+  <!-- MINDSET -->
+  <div class="section">
+    <h2>💻 Tư duy</h2>
+    <div class="code-box">
 const adminMindset = {
   stabilityFirst: true,
   automationEverywhere: true,
   reduceManualWork: true,
-  clearProcess: true,
-  easyForEndUser: true
+  simpleForUser: true
 };
-
-export default adminMindset;
-        </div>
     </div>
+  </div>
 
-    <footer>
-        © 2026 • Built with focus & ☕ by <span>Do Nguyen</span>
-        <span class="ai-note">
-            Website được tạo với sự hỗ trợ của ChatGPT
-        </span>
-    </footer>
+  <footer>
+    © 2026 • Built by <span>Do Nguyen</span>
+    <span class="ai-note">Website được tạo với sự hỗ trợ của ChatGPT</span>
+  </footer>
 
 </div>
 </body>
